@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useState } from 'react';
 import { FaInstagram } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa6';
 import { RxSlash } from 'react-icons/rx';
@@ -9,9 +10,9 @@ import { SiGmail } from 'react-icons/si';
 import { TiThMenu } from 'react-icons/ti';
 
 const menuItems = [
-  { id: 1, label: 'About', href: '#about' },
-  { id: 2, label: 'Projects', href: '#projects' },
-  { id: 3, label: 'Contact', href: '#contact' },
+  { id: 1, label: 'About', href: '#about', color: '#E40037' },
+  { id: 2, label: 'Projects', href: '#projects', color: '#0066FF' },
+  { id: 3, label: 'Contact', href: '#contact', color: '#00C896' },
 ];
 
 const containerVariants = {
@@ -76,6 +77,12 @@ const imageVariants = {
 };
 
 export const HomeScreen = () => {
+  const [accentColor, setAccentColor] = useState('#E40037');
+
+  const handleMenuClick = (color: string) => {
+    setAccentColor(color);
+  };
+
   return (
     <motion.main
       className="min-h-screen bg-black"
@@ -99,12 +106,17 @@ export const HomeScreen = () => {
 
         {/* Nom et Prénom (visible uniquement sur desktop) */}
         <motion.div className="hidden lg:flex flex-col items-center" variants={headerGroupVariants}>
-          <h1 className="font-playfair text-5xl text-[#E40037] font-bold text-center uppercase">
+          <h1 className="font-playfair text-5xl font-bold text-center uppercase">
             <span className="text-primary text-[#fff]">Estime</span>
           </h1>
-          <h1 className="font-playfair text-5xl text-[#E40037] font-bold text-center mt-2 uppercase">
+          <motion.h1
+            className="font-playfair text-5xl font-bold text-center mt-2 uppercase"
+            style={{ color: accentColor }}
+            animate={{ color: accentColor }}
+            transition={{ duration: 0.5 }}
+          >
             Vangu
-          </h1>
+          </motion.h1>
         </motion.div>
 
         {/* Menu Icon (visible uniquement sur mobile) */}
@@ -124,12 +136,27 @@ export const HomeScreen = () => {
           className="lg:hidden absolute top-44 left-0 right-0 flex flex-col items-center z-10"
           variants={bottomGroupVariants}
         >
-          <h1 className="font-playfair text-4xl text-[#E40037] font-bold text-center uppercase">
-            <span className="text-primary text-[#fff]">Estime</span> Vangu
+          <h1 className="font-playfair text-4xl font-bold text-center uppercase">
+            <span className="text-primary text-[#fff]">Estime</span>
+            <motion.span
+              style={{ color: accentColor }}
+              animate={{ color: accentColor }}
+              transition={{ duration: 0.5 }}
+            >
+              {' '}
+              Vangu
+            </motion.span>
           </h1>
-          <p className="text-[#E40037] text-4xl font-bold text-center mt-4 uppercase">
+          <p className="text-4xl font-bold text-center mt-4 uppercase">
             <span className="font-bold text-white">Web</span>
-            <RxSlash className="inline-block mx-0 text-[#E40037] w-8 h-8 -mt-1" />
+            <motion.span
+              className="inline-block mx-0 w-8 h-8 -mt-1"
+              style={{ color: accentColor }}
+              animate={{ color: accentColor }}
+              transition={{ duration: 0.5 }}
+            >
+              <RxSlash />
+            </motion.span>
             <span className="font-bold text-white">App</span> Developer
           </p>
         </motion.div>
@@ -139,17 +166,11 @@ export const HomeScreen = () => {
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
         >
-          <div
-            className="absolute inset-0 bg-[#E40037] blur-3xl opacity-50 rounded-full overflow-hidden mt-[100px]"
-            // animate={{
-            //   scale: [0.7, 0.9, 0.7],
-            //   opacity: [0.5, 0.7, 0.5],
-            // }}
-            // transition={{
-            //   duration: 4,
-            //   repeat: Infinity,
-            //   ease: 'easeInOut',
-            // }}
+          <motion.div
+            className="absolute inset-0 blur-3xl opacity-50 rounded-full overflow-hidden mt-[100px]"
+            style={{ backgroundColor: accentColor }}
+            animate={{ backgroundColor: accentColor }}
+            transition={{ duration: 0.5 }}
           />
           <Image
             src="/images/me.png"
@@ -166,12 +187,26 @@ export const HomeScreen = () => {
         className="hidden lg:block fixed bottom-10 left-10 gap-4 text-center"
         variants={bottomGroupVariants}
       >
-        <p className="text-[#E40037] text-4xl font-bold uppercase">
+        <p className="text-4xl font-bold uppercase">
           <span className="font-bold text-white">Web</span>
-          <RxSlash className="inline-block mx-0 text-[#E40037] w-10 h-10 -mt-1" />
+          <motion.span
+            className="inline-block mx-0 w-10 h-10 -mt-1"
+            style={{ color: accentColor }}
+            animate={{ color: accentColor }}
+            transition={{ duration: 0.5 }}
+          >
+            <RxSlash className="mt-2 ml-1" />
+          </motion.span>
           <span className="font-bold text-white">App</span>
         </p>
-        <p className="text-[#E40037] text-4xl font-bold mt-2 uppercase">Developer</p>
+        <motion.p
+          className="text-4xl font-bold mt-2 uppercase"
+          style={{ color: accentColor }}
+          animate={{ color: accentColor }}
+          transition={{ duration: 0.5 }}
+        >
+          Developer
+        </motion.p>
       </motion.div>
 
       {/* Menu Navigation (visible uniquement sur desktop) */}
@@ -181,11 +216,16 @@ export const HomeScreen = () => {
             <motion.a
               key={item.id}
               href={item.href}
-              className="text-white text-3xl hover:text-[#E40037] transition-colors transform rotate-90 origin-left font-bold uppercase w-32 h-10 flex items-center justify-center"
+              className="text-white text-3xl transition-colors transform rotate-90 origin-left font-bold uppercase w-32 h-10 flex items-center justify-center"
               whileHover={{ scale: 1.1, x: 10 }}
               transition={{ duration: 0.3 }}
               custom={i}
               variants={menuItemVariants}
+              onClick={() => handleMenuClick(item.color)}
+              style={{
+                color: accentColor === item.color ? item.color : 'white',
+                transition: 'color 0.5s',
+              }}
             >
               {item.label}
             </motion.a>
@@ -200,13 +240,28 @@ export const HomeScreen = () => {
       >
         <div className="flex gap-4">
           <motion.div whileHover={{ scale: 1.2, y: -5 }} transition={{ duration: 0.3 }}>
-            <FaInstagram className="text-[#fff] text-6xl hover:text-[#E40037] transition-colors cursor-pointer" />
+            <motion.div animate={{ color: accentColor }} transition={{ duration: 0.5 }}>
+              <FaInstagram
+                className="text-6xl transition-colors cursor-pointer"
+                style={{ color: accentColor }}
+              />
+            </motion.div>
           </motion.div>
           <motion.div whileHover={{ scale: 1.2, y: -5 }} transition={{ duration: 0.3 }}>
-            <FaLinkedin className="text-[#fff] text-6xl hover:text-[#E40037] transition-colors cursor-pointer" />
+            <motion.div animate={{ color: accentColor }} transition={{ duration: 0.5 }}>
+              <FaLinkedin
+                className="text-6xl transition-colors cursor-pointer"
+                style={{ color: accentColor }}
+              />
+            </motion.div>
           </motion.div>
           <motion.div whileHover={{ scale: 1.2, y: -5 }} transition={{ duration: 0.3 }}>
-            <SiGmail className="text-[#fff] text-6xl hover:text-[#E40037] transition-colors cursor-pointer" />
+            <motion.div animate={{ color: accentColor }} transition={{ duration: 0.5 }}>
+              <SiGmail
+                className="text-6xl transition-colors cursor-pointer"
+                style={{ color: accentColor }}
+              />
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>
