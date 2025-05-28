@@ -23,10 +23,10 @@ export const HomeScreen = () => {
 
         {/* Nom et Prénom (visible uniquement sur desktop) */}
         <div className="hidden lg:flex flex-col items-center">
-          <h1 className="font-playfair text-5xl text-[#E40037] font-bold text-center">
+          <h1 className="font-playfair text-5xl text-[#E40037] font-bold text-center uppercase">
             <span className="text-primary text-[#fff]">Estime</span>
           </h1>
-          <h1 className="font-playfair text-5xl text-[#E40037] font-bold text-center mt-2">
+          <h1 className="font-playfair text-5xl text-[#E40037] font-bold text-center mt-2 uppercase">
             Vangu
           </h1>
         </div>
@@ -41,10 +41,10 @@ export const HomeScreen = () => {
       <div className="h-screen flex items-center justify-center">
         {/* Contenu Mobile (visible uniquement sur mobile) */}
         <div className="lg:hidden absolute top-44 left-0 right-0 flex flex-col items-center z-10">
-          <h1 className="font-playfair text-4xl text-[#E40037] font-bold text-center">
+          <h1 className="font-playfair text-4xl text-[#E40037] font-bold text-center uppercase">
             <span className="text-primary text-[#fff]">Estime</span> Vangu
           </h1>
-          <p className="text-[#E40037] text-4xl font-bold text-center mt-4">
+          <p className="text-[#E40037] text-4xl font-bold text-center mt-4 uppercase">
             <span className="font-bold text-white">Web</span>
             <RxSlash className="inline-block mx-0 text-[#E40037] w-8 h-8 -mt-1" />
             <span className="font-bold text-white">App</span> Developer
@@ -65,12 +65,12 @@ export const HomeScreen = () => {
 
       {/* Professions (visible uniquement sur desktop) */}
       <div className="hidden lg:block fixed bottom-10 left-10 gap-4 text-center">
-        <p className="text-[#E40037] text-4xl font-bold">
+        <p className="text-[#E40037] text-4xl font-bold uppercase">
           <span className="font-bold text-white">Web</span>
           <RxSlash className="inline-block mx-0 text-[#E40037] w-10 h-10 -mt-1" />
           <span className="font-bold text-white">App</span>
         </p>
-        <p className="text-[#E40037] text-4xl font-bold mt-2">Developer</p>
+        <p className="text-[#E40037] text-4xl font-bold mt-2 uppercase">Developer</p>
       </div>
 
       {/* Menu Navigation (visible uniquement sur desktop) */}
