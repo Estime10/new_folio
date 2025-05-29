@@ -7,7 +7,7 @@ import type {
   NavigationProps,
   ProfessionProps,
   SocialIconsProps,
-} from './types';
+} from '../../../lib/types';
 
 export const Header = dynamic<HeaderProps>(() => import('./Header'), { ssr: false });
 export const CentralImage = dynamic<CentralImageProps>(() => import('./CentralImage'), {

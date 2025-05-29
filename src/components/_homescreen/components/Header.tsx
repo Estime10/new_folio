@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { TiThMenu } from 'react-icons/ti';
-import { headerGroupVariants } from './animations';
-import type { HeaderProps } from './types';
+import { headerGroupVariants } from '../../../lib/animations';
+import type { HeaderProps } from '../../../lib/types';
 
 const Header = ({ accentColor }: HeaderProps) => {
   return (

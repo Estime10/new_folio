@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { RxSlash } from 'react-icons/rx';
-import { bottomGroupVariants } from './animations';
-import type { ProfessionProps } from './types';
+import { bottomGroupVariants } from '../../../lib/animations';
+import type { ProfessionProps } from '../../../lib/types';
 
 const Profession = ({ accentColor }: ProfessionProps) => {
   return (

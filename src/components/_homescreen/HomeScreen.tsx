@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { containerVariants } from './components/animations';
+import { useEffect, useState } from 'react';
+import { containerVariants } from '../../lib/animations';
 import {
   CentralImage,
   Header,
@@ -12,7 +12,8 @@ import {
 } from './components/ClientComponents';
 
 const menuItems = [
-  { id: 1, label: 'About', href: '#about', color: '#E40037' },
+  { id: 0, label: 'Home', href: '#home', color: '#E40037' },
+  { id: 1, label: 'About', href: '#about', color: '#6C00FF' },
   { id: 2, label: 'Projects', href: '#projects', color: '#0066FF' },
   { id: 3, label: 'Contact', href: '#contact', color: '#00C896' },
 ];
@@ -24,14 +25,29 @@ export const HomeScreen = () => {
     setAccentColor(color);
   };
 
+  useEffect(() => {
+    // Empêcher le défilement
+    document.body.style.overflow = 'hidden';
+
+    // Nettoyer lors du démontage
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   return (
     <motion.main
-      className="min-h-screen bg-black"
+      className="min-h-screen bg-black overflow-hidden fixed inset-0"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="h-full w-full"
+      >
         <Header accentColor={accentColor} />
         <CentralImage accentColor={accentColor} />
         <Profession accentColor={accentColor} />

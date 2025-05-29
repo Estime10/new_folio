@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { FaInstagram } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa6';
 import { SiGmail } from 'react-icons/si';
-import { bottomGroupVariants } from './animations';
-import type { SocialIconsProps } from './types';
+import { bottomGroupVariants } from '../../../lib/animations';
+import type { SocialIconsProps } from '../../../lib/types';
 
 const SocialIcons = ({ accentColor }: SocialIconsProps) => {
   return (
