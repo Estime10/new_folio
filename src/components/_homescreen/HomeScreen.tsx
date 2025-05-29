@@ -12,17 +12,19 @@ import {
 } from './components/ClientComponents';
 
 const menuItems = [
-  { id: 0, label: 'Home', href: '#home', color: '#E40037' },
-  { id: 1, label: 'About', href: '#about', color: '#6C00FF' },
-  { id: 2, label: 'Projects', href: '#projects', color: '#0066FF' },
-  { id: 3, label: 'Contact', href: '#contact', color: '#00C896' },
+  { id: 1, label: 'Home', href: '#home', color: '#E40037' },
+  { id: 2, label: 'About', href: '#about', color: '#6C00FF' },
+  { id: 3, label: 'Projects', href: '#projects', color: '#0066FF' },
+  { id: 4, label: 'Contact', href: '#contact', color: '#00C896' },
 ];
 
 export const HomeScreen = () => {
   const [accentColor, setAccentColor] = useState('#E40037');
+  const [isHome, setIsHome] = useState(true);
 
-  const handleMenuClick = (color: string) => {
+  const handleMenuClick = (color: string, id: number) => {
     setAccentColor(color);
+    setIsHome(id === 1);
   };
 
   useEffect(() => {
@@ -49,10 +51,14 @@ export const HomeScreen = () => {
         className="h-full w-full"
       >
         <Header accentColor={accentColor} />
-        <CentralImage accentColor={accentColor} />
-        <Profession accentColor={accentColor} />
+        <CentralImage accentColor={accentColor} showImage={isHome} />
+        {isHome && (
+          <>
+            <Profession accentColor={accentColor} />
+            <SocialIcons accentColor={accentColor} />
+          </>
+        )}
         <Navigation menuItems={menuItems} accentColor={accentColor} onMenuClick={handleMenuClick} />
-        <SocialIcons accentColor={accentColor} />
       </motion.div>
     </motion.main>
   );

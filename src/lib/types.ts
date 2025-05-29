@@ -11,12 +11,18 @@ export interface HeaderProps {
 
 export interface CentralImageProps {
   accentColor: string;
+  showImage: boolean;
 }
 
 export interface NavigationProps {
-  menuItems: MenuItem[];
+  menuItems: {
+    id: number;
+    label: string;
+    href: string;
+    color: string;
+  }[];
   accentColor: string;
-  onMenuClick: (color: string) => void;
+  onMenuClick: (color: string, id: number) => void;
 }
 
 export interface ProfessionProps {

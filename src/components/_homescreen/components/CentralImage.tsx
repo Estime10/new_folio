@@ -1,12 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { RxSlash } from 'react-icons/rx';
-import { bottomGroupVariants, imageVariants } from '../../../lib/animations';
+import { bottomGroupVariants, imagePresenceVariants, imageVariants } from '../../../lib/animations';
 import type { CentralImageProps } from '../../../lib/types';
 
-const CentralImage = ({ accentColor }: CentralImageProps) => {
+const CentralImage = ({ accentColor, showImage }: CentralImageProps) => {
   return (
     <motion.div className="h-screen flex items-center justify-center" variants={imageVariants}>
       {/* Contenu Mobile (visible uniquement sur mobile) */}
@@ -36,35 +36,47 @@ const CentralImage = ({ accentColor }: CentralImageProps) => {
             <RxSlash className="mt-2 mx-[2px]" />
           </motion.span>
           <span className="font-bold text-white">App</span>{' '}
-          <span className="text-[#E40037]">Developer</span>
+          <motion.span style={{ color: accentColor }} animate={{ color: accentColor }}>
+            Developer
+          </motion.span>
         </p>
       </motion.div>
 
-      <motion.div
-        className="relative
-        w-[400px] h-[400px]
-        md:w-[500px] md:h-[500px]
-        lg:w-[600px] lg:h-[600px]
-        mt-[470px]
-        md:mt-[630px]
-        lg:mt-[350px]"
-        whileHover={{ scale: 1.02 }}
-        transition={{ duration: 0.3 }}
-      >
-        <motion.div
-          className="absolute inset-0 blur-3xl opacity-50 rounded-full overflow-hidden mt-[100px] lg:mt-[100px] w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px]"
-          style={{ backgroundColor: accentColor }}
-          animate={{ backgroundColor: accentColor }}
-          transition={{ duration: 0.5 }}
-        />
-        <Image
-          src="/images/me.png"
-          alt="Image principale"
-          fill
-          className="object-cover rounded-lg shadow-xl"
-          priority
-        />
-      </motion.div>
+      <AnimatePresence>
+        {showImage && (
+          <motion.div
+            className="relative
+            w-[450px] h-[450px]
+            md:w-[500px] md:h-[500px]
+            lg:w-[630px] lg:h-[630px]
+            xl:w-[700px] xl:h-[700px]
+            mt-[620px]
+            md:mt-[630px]
+            lg:mt-[430px]
+            xl:mt-[360px]"
+            variants={imagePresenceVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            whileHover={{ scale: 1.02 }}
+          >
+            <motion.div
+              className="absolute inset-0 blur-3xl opacity-50 rounded-full overflow-hidden mt-[100px]
+              lg:mt-[100px] w-[450px] h-[450px] md:w-[500px] md:h-[500px] lg:w-[630px] lg:h-[630px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px]"
+              style={{ backgroundColor: accentColor }}
+              animate={{ backgroundColor: accentColor }}
+              transition={{ duration: 0.5 }}
+            />
+            <Image
+              src="/images/me.png"
+              alt="Image principale"
+              fill
+              className="object-cover rounded-lg shadow-xl"
+              priority
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
