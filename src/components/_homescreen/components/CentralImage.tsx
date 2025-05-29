@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { RxSlash } from 'react-icons/rx';
 import { bottomGroupVariants, imagePresenceVariants, imageVariants } from '../../../lib/animations';
 import type { CentralImageProps } from '../../../lib/types';
+import SocialIcons from './SocialIcons';
 
 const CentralImage = ({ accentColor, showImage }: CentralImageProps) => {
   return (
@@ -25,21 +26,26 @@ const CentralImage = ({ accentColor, showImage }: CentralImageProps) => {
             Vangu
           </motion.span>
         </h1>
-        <p className="text-3xl font-bold text-center mt-4 uppercase">
-          <span className="font-bold text-white">Web</span>
-          <motion.span
-            className="inline-block mx-0 w-8 h-8 -mt-1"
-            style={{ color: accentColor }}
-            animate={{ color: accentColor }}
-            transition={{ duration: 0.5 }}
-          >
-            <RxSlash className="mt-2 mx-[2px]" />
-          </motion.span>
-          <span className="font-bold text-white">App</span>{' '}
-          <motion.span style={{ color: accentColor }} animate={{ color: accentColor }}>
-            Developer
-          </motion.span>
-        </p>
+        <div className="flex flex-col items-center">
+          <p className="text-3xl font-bold text-center mt-4 uppercase">
+            <span className="font-bold text-white">Web</span>
+            <motion.span
+              className="inline-block mx-0 w-8 h-8 -mt-1"
+              style={{ color: accentColor }}
+              animate={{ color: accentColor }}
+              transition={{ duration: 0.5 }}
+            >
+              <RxSlash className="mt-2 mx-[2px]" />
+            </motion.span>
+            <span className="font-bold text-white">App</span>{' '}
+            <motion.span style={{ color: accentColor }} animate={{ color: accentColor }}>
+              Developer
+            </motion.span>
+          </p>
+          <div className="mt-4">
+            <SocialIcons accentColor={accentColor} />
+          </div>
+        </div>
       </motion.div>
 
       <AnimatePresence>
@@ -58,14 +64,14 @@ const CentralImage = ({ accentColor, showImage }: CentralImageProps) => {
             initial="initial"
             animate="animate"
             exit="exit"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.05 }}
           >
             <motion.div
               className="absolute inset-0 blur-3xl opacity-50 rounded-full overflow-hidden mt-[100px]
               lg:mt-[100px] w-[600px] h-[600px] md:w-[500px] md:h-[500px] lg:w-[800px] lg:h-[800px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px]"
               style={{ backgroundColor: accentColor }}
               animate={{ backgroundColor: accentColor }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.8 }}
             />
             <Image
               src="/images/me.png"
