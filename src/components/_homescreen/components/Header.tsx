@@ -6,7 +6,7 @@ import { TiThMenu } from 'react-icons/ti';
 import { headerGroupVariants } from '../../../lib/animations';
 import type { HeaderProps } from '../../../lib/types';
 
-const Header = ({ accentColor }: HeaderProps) => {
+const Header = ({ accentColor, onToggleMobileMenu }: HeaderProps) => {
   return (
     <motion.header
       className="fixed -top-10 lg:-top-24 left-0 right-0 px-4 flex justify-between items-center lg:px-10 lg:py-10"
@@ -37,9 +37,9 @@ const Header = ({ accentColor }: HeaderProps) => {
       </motion.div>
 
       {/* Menu Icon (visible uniquement sur mobile) */}
-      <motion.div className="lg:hidden" whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
+      <div className="lg:hidden -mt-8" onClick={onToggleMobileMenu}>
         <TiThMenu className="text-white text-4xl" />
-      </motion.div>
+      </div>
     </motion.header>
   );
 };

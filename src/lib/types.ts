@@ -7,6 +7,7 @@ export interface MenuItem {
 
 export interface HeaderProps {
   accentColor: string;
+  onToggleMobileMenu: () => void;
 }
 
 export interface CentralImageProps {
@@ -23,6 +24,8 @@ export interface NavigationProps {
   }[];
   accentColor: string;
   onMenuClick: (color: string, id: number) => void;
+  isMobileMenuOpen: boolean;
+  onToggleMobileMenu: () => void;
 }
 
 export interface ProfessionProps {

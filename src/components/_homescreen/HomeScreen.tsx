@@ -21,21 +21,29 @@ const menuItems = [
 export const HomeScreen = () => {
   const [accentColor, setAccentColor] = useState('#E40037');
   const [isHome, setIsHome] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMenuClick = (color: string, id: number) => {
     setAccentColor(color);
     setIsHome(id === 1);
+    setIsMobileMenuOpen(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   useEffect(() => {
-    // Empêcher le défilement
-    document.body.style.overflow = 'hidden';
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
 
-    // Nettoyer lors du démontage
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, []);
+  }, [isMobileMenuOpen]);
 
   return (
     <motion.main
@@ -50,7 +58,7 @@ export const HomeScreen = () => {
         transition={{ duration: 0.5 }}
         className="h-full w-full"
       >
-        <Header accentColor={accentColor} />
+        <Header accentColor={accentColor} onToggleMobileMenu={toggleMobileMenu} />
         <CentralImage accentColor={accentColor} showImage={isHome} />
         {isHome && (
           <>
@@ -58,7 +66,13 @@ export const HomeScreen = () => {
             <SocialIcons accentColor={accentColor} />
           </>
         )}
-        <Navigation menuItems={menuItems} accentColor={accentColor} onMenuClick={handleMenuClick} />
+        <Navigation
+          menuItems={menuItems}
+          accentColor={accentColor}
+          onMenuClick={handleMenuClick}
+          isMobileMenuOpen={isMobileMenuOpen}
+          onToggleMobileMenu={toggleMobileMenu}
+        />
       </motion.div>
     </motion.main>
   );

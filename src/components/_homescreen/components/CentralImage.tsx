@@ -46,13 +46,13 @@ const CentralImage = ({ accentColor, showImage }: CentralImageProps) => {
         {showImage && (
           <motion.div
             className="relative
-            w-[450px] h-[450px]
+            w-[600px] h-[600px]
             md:w-[500px] md:h-[500px]
-            lg:w-[630px] lg:h-[630px]
+            lg:w-[800px] lg:h-[800px]
             xl:w-[700px] xl:h-[700px]
-            mt-[620px]
+            mt-[460px]
             md:mt-[630px]
-            lg:mt-[430px]
+            lg:mt-[260px]
             xl:mt-[360px]"
             variants={imagePresenceVariants}
             initial="initial"
@@ -62,7 +62,7 @@ const CentralImage = ({ accentColor, showImage }: CentralImageProps) => {
           >
             <motion.div
               className="absolute inset-0 blur-3xl opacity-50 rounded-full overflow-hidden mt-[100px]
-              lg:mt-[100px] w-[450px] h-[450px] md:w-[500px] md:h-[500px] lg:w-[630px] lg:h-[630px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px]"
+              lg:mt-[100px] w-[600px] h-[600px] md:w-[500px] md:h-[500px] lg:w-[800px] lg:h-[800px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px]"
               style={{ backgroundColor: accentColor }}
               animate={{ backgroundColor: accentColor }}
               transition={{ duration: 0.5 }}
