@@ -7,7 +7,7 @@ import { bottomGroupVariants, imagePresenceVariants, imageVariants } from '../..
 import type { CentralImageProps } from '../../../lib/types';
 import SocialIcons from './SocialIcons';
 
-const CentralImage = ({ accentColor, showImage }: CentralImageProps) => {
+const CentralImage = ({ accentColor, showImage, isHome }: CentralImageProps) => {
   return (
     <motion.div className="h-screen flex items-center justify-center" variants={imageVariants}>
       {/* Contenu Mobile (visible uniquement sur mobile) */}
@@ -20,7 +20,7 @@ const CentralImage = ({ accentColor, showImage }: CentralImageProps) => {
           <motion.span
             style={{ color: accentColor }}
             animate={{ color: accentColor }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
             {' '}
             Vangu
@@ -33,18 +33,24 @@ const CentralImage = ({ accentColor, showImage }: CentralImageProps) => {
               className="inline-block mx-0 w-8 h-8 -mt-1"
               style={{ color: accentColor }}
               animate={{ color: accentColor }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
             >
               <RxSlash className="mt-2 mx-[2px]" />
             </motion.span>
             <span className="font-bold text-white">App</span>{' '}
-            <motion.span style={{ color: accentColor }} animate={{ color: accentColor }}>
+            <motion.span
+              style={{ color: accentColor }}
+              animate={{ color: accentColor }}
+              transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+            >
               Developer
             </motion.span>
           </p>
-          <div className="mt-4">
-            <SocialIcons accentColor={accentColor} />
-          </div>
+          {isHome && (
+            <div className="mt-4">
+              <SocialIcons accentColor={accentColor} />
+            </div>
+          )}
         </div>
       </motion.div>
 
@@ -64,7 +70,6 @@ const CentralImage = ({ accentColor, showImage }: CentralImageProps) => {
             initial="initial"
             animate="animate"
             exit="exit"
-            whileHover={{ scale: 1.05 }}
           >
             <motion.div
               className="absolute inset-0 blur-3xl opacity-50 rounded-full overflow-hidden mt-[100px]

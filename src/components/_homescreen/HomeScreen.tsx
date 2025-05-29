@@ -3,7 +3,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { containerVariants } from '../../lib/animations';
-import AboutCard from './components/AboutCard';
 import {
   CentralImage,
   Header,
@@ -11,12 +10,14 @@ import {
   Profession,
   SocialIcons,
 } from './components/ClientComponents';
+import AboutCard from './components/sections/about_section/AboutCard';
+import ProjectCard from './components/sections/projects_section/ProjectCard';
 
 const menuItems = [
   { id: 1, label: 'Home', href: '#home', color: '#E40037' },
   { id: 2, label: 'About', href: '#about', color: '#6C00FF' },
-  { id: 3, label: 'Projects', href: '#projects', color: '#0066FF' },
-  { id: 4, label: 'Contact', href: '#contact', color: '#00C896' },
+  { id: 3, label: 'Projects', href: '#projects', color: '#00C3FF' },
+  { id: 4, label: 'Contact', href: '#contact', color: '#39FF14' },
 ];
 
 export const HomeScreen = () => {
@@ -62,7 +63,7 @@ export const HomeScreen = () => {
         className="h-full w-full"
       >
         <Header accentColor={accentColor} onToggleMobileMenu={toggleMobileMenu} />
-        <CentralImage accentColor={accentColor} showImage={isHome} />
+        <CentralImage accentColor={accentColor} showImage={isHome} isHome={isHome} />
         {isHome && (
           <>
             <Profession accentColor={accentColor} />
@@ -80,6 +81,7 @@ export const HomeScreen = () => {
         {/* Sections */}
         <AnimatePresence>
           {activeSection === 'about' && <AboutCard accentColor={accentColor} />}
+          {activeSection === 'projects' && <ProjectCard accentColor={accentColor} />}
         </AnimatePresence>
       </motion.div>
     </motion.main>

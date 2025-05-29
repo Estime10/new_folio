@@ -13,6 +13,7 @@ export interface HeaderProps {
 export interface CentralImageProps {
   accentColor: string;
   showImage: boolean;
+  isHome: boolean;
 }
 
 export interface NavigationProps {

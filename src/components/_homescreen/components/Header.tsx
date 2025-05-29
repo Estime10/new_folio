@@ -11,15 +11,12 @@ const Header = ({ accentColor, onToggleMobileMenu }: HeaderProps) => {
     <motion.header
       className="fixed -top-10 lg:-top-24 left-0 right-0 px-4 flex justify-between items-center lg:px-10 lg:py-10"
       variants={headerGroupVariants}
+      style={{ zIndex: 50 }}
     >
       {/* Logo */}
-      <motion.div
-        className="relative w-60 h-60 lg:w-80 lg:h-80 -left-14 lg:-left-22"
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-      >
+      <div className="relative w-60 h-60 lg:w-80 lg:h-80 -left-14 lg:-left-22">
         <Image src="/images/logo_2.png" alt="Logo" className="object-contain" priority fill />
-      </motion.div>
+      </div>
 
       {/* Nom et Prénom (visible uniquement sur desktop) */}
       <motion.div className="hidden lg:flex flex-col items-center" variants={headerGroupVariants}>

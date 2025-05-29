@@ -4,7 +4,9 @@ export const containerVariants = {
     opacity: 1,
     transition: {
       when: 'beforeChildren',
-      staggerChildren: 0.2,
+      staggerChildren: 0.3,
+      duration: 0.8,
+      ease: [0.4, 0, 0.2, 1],
     },
   },
 };
@@ -15,8 +17,8 @@ export const headerGroupVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.8,
-      ease: 'easeOut',
+      duration: 1,
+      ease: [0.4, 0, 0.2, 1],
     },
   },
 };
@@ -27,9 +29,9 @@ export const bottomGroupVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-      delay: 0.5,
+      duration: 1,
+      ease: [0.4, 0, 0.2, 1],
+      delay: 0.3,
     },
   },
 };
@@ -40,9 +42,9 @@ export const menuItemVariants = {
     x: 0,
     opacity: 1,
     transition: {
-      delay: 1 + i * 0.2,
-      duration: 0.8,
-      ease: 'easeOut',
+      delay: 0.5 + i * 0.15,
+      duration: 1,
+      ease: [0.4, 0, 0.2, 1],
     },
   }),
 };
@@ -53,8 +55,8 @@ export const imageVariants = {
     scale: 1,
     opacity: 1,
     transition: {
-      duration: 1.2,
-      ease: 'easeOut',
+      duration: 1.5,
+      ease: [0.4, 0, 0.2, 1],
     },
   },
 };
@@ -65,16 +67,16 @@ export const imagePresenceVariants = {
     scale: 1,
     opacity: 1,
     transition: {
-      duration: 0.5,
-      ease: 'easeInOut',
+      duration: 0.8,
+      ease: [0.4, 0, 0.2, 1],
     },
   },
   exit: {
     scale: 0.8,
     opacity: 0,
     transition: {
-      duration: 0.5,
-      ease: 'easeInOut',
+      duration: 0.8,
+      ease: [0.4, 0, 0.2, 1],
     },
   },
 };
