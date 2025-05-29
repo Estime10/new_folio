@@ -1,8 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { containerVariants } from '../../lib/animations';
+import AboutCard from './components/AboutCard';
 import {
   CentralImage,
   Header,
@@ -22,10 +23,12 @@ export const HomeScreen = () => {
   const [accentColor, setAccentColor] = useState('#E40037');
   const [isHome, setIsHome] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const handleMenuClick = (color: string, id: number) => {
     setAccentColor(color);
     setIsHome(id === 1);
+    setActiveSection(id === 1 ? 'home' : id === 2 ? 'about' : id === 3 ? 'projects' : 'contact');
     setIsMobileMenuOpen(false);
   };
 
@@ -73,6 +76,11 @@ export const HomeScreen = () => {
           isMobileMenuOpen={isMobileMenuOpen}
           onToggleMobileMenu={toggleMobileMenu}
         />
+
+        {/* Sections */}
+        <AnimatePresence>
+          {activeSection === 'about' && <AboutCard accentColor={accentColor} />}
+        </AnimatePresence>
       </motion.div>
     </motion.main>
   );
