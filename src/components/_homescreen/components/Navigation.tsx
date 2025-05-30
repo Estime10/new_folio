@@ -21,7 +21,7 @@ const Navigation = ({
     <>
       {/* Menu Desktop */}
       <motion.div
-        className="hidden lg:block fixed right-10 top-[250px] z-50"
+        className="hidden lg:block fixed right-12 top-[250px] z-50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -36,7 +36,7 @@ const Navigation = ({
             <motion.a
               key={item.id}
               href={item.href}
-              className="text-white text-2xl transition-colors font-bold uppercase flex items-center justify-start hover:scale-110 w-full"
+              className="text-white text-2xl transition-colors font-bold uppercase flex items-center justify-end hover:scale-110 w-full"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{

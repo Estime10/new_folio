@@ -19,7 +19,10 @@ const Header = ({ accentColor, onToggleMobileMenu }: HeaderProps) => {
       </div>
 
       {/* Nom et Prénom (visible uniquement sur desktop) */}
-      <motion.div className="hidden lg:flex flex-col items-center" variants={headerGroupVariants}>
+      <motion.div
+        className="hidden lg:flex flex-col items-center mt-3"
+        variants={headerGroupVariants}
+      >
         <h1 className="font-playfair text-5xl font-bold text-center uppercase">
           <span className="text-primary text-[#fff]">Estime</span>
         </h1>

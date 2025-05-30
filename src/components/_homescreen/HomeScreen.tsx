@@ -16,8 +16,7 @@ import ProjectCard from './components/sections/projects_section/ProjectCard';
 const menuItems = [
   { id: 1, label: 'Home', href: '#home', color: '#E40037' },
   { id: 2, label: 'About', href: '#about', color: '#6C00FF' },
-  { id: 3, label: 'Projects', href: '#projects', color: '#00C3FF' },
-  { id: 4, label: 'Contact', href: '#contact', color: '#39FF14' },
+  { id: 3, label: 'Projects', href: '#projects', color: '#39FF14' },
 ];
 
 export const HomeScreen = () => {
@@ -29,7 +28,7 @@ export const HomeScreen = () => {
   const handleMenuClick = (color: string, id: number) => {
     setAccentColor(color);
     setIsHome(id === 1);
-    setActiveSection(id === 1 ? 'home' : id === 2 ? 'about' : id === 3 ? 'projects' : 'contact');
+    setActiveSection(id === 1 ? 'home' : id === 2 ? 'about' : 'projects');
     setIsMobileMenuOpen(false);
   };
 
