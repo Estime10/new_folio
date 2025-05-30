@@ -7,7 +7,7 @@ import { bottomGroupVariants, imagePresenceVariants, imageVariants } from '../..
 import type { CentralImageProps } from '../../../lib/types';
 import SocialIcons from './SocialIcons';
 
-const CentralImage = ({ accentColor, showImage, isHome, activeSection }: CentralImageProps) => {
+const CentralImage = ({ accentColor, showImage, isHome }: CentralImageProps) => {
   return (
     <motion.div className="h-screen flex items-center justify-center" variants={imageVariants}>
       {/* Contenu Mobile (visible uniquement sur mobile) */}
