@@ -138,7 +138,7 @@ const AboutCard = ({ accentColor }: AboutCardProps) => {
       </motion.div>
 
       {/* Version Mobile - About Me Only */}
-      <div className="lg:hidden flex flex-col gap-4 w-full px-4 mt-[300px] pointer-events-auto">
+      <div className="lg:hidden flex flex-col gap-4 w-full px-4 mt-[125px] pointer-events-auto">
         {/* Carte About Me */}
         <motion.div
           className="backdrop-blur-sm w-full rounded-2xl p-6 relative overflow-hidden"

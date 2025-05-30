@@ -36,7 +36,7 @@ const Navigation = ({
             <motion.a
               key={item.id}
               href={item.href}
-              className="text-white text-2xl transition-colors font-bold uppercase flex items-center justify-end hover:scale-110 w-full"
+              className="text-white text-2xl font-bold uppercase flex items-center justify-end hover:scale-110 transition-transform duration-300 ease-in-out w-full"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{
@@ -44,7 +44,6 @@ const Navigation = ({
                 delay: 1 + i * 0.2,
                 ease: 'easeOut',
               }}
-              whileHover={{ scale: 1.1, x: 10 }}
               onClick={() => onMenuClick(item.color, item.id)}
               style={{
                 color: accentColor === item.color ? item.color : 'white',

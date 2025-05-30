@@ -15,12 +15,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Estime Vangu | Développeur Web & Mobile Full Stack',
+  title: 'Estime Vangu | Web & Mobile Developer',
   description:
-    'Portfolio de Estime Vangu, développeur web et mobile full stack spécialisé en React, TypeScript et React Native. Découvrez mes projets innovants et mes compétences en développement web et mobile.',
+    'Portfolio of Estime Vangu, web and mobile developer specialized in React, TypeScript and React Native. Discover my innovative projects and my skills in web and mobile development.',
   keywords: [
-    'développeur web',
-    'développeur mobile',
+    'web developer',
+    'mobile developer',
     'React',
     'TypeScript',
     'React Native',
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     'portfolio',
     'Estime Vangu',
     'full stack',
-    'développeur belge',
+    'belgian developer',
   ],
-  authors: [{ name: 'Estime Vangu', url: 'https://estimevangu.dev' }],
+  authors: [{ name: 'Estime Vangu', url: 'https://estimevanguportfolio.vercel.app/' }],
   creator: 'Estime Vangu',
   publisher: 'Estime Vangu',
   formatDetection: {
@@ -41,25 +41,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://estimevangu.dev',
-    title: 'Estime Vangu | Développeur Web & Mobile Full Stack',
+    url: 'https://estimevanguportfolio.vercel.app/',
+    title: 'Estime Vangu | Web & Mobile Developer',
     description:
-      'Portfolio de Estime Vangu, développeur web et mobile full stack spécialisé en React, TypeScript et React Native.',
+      'Portfolio of Estime Vangu, web and mobile developer specialized in React, TypeScript and React Native.',
     siteName: 'Portfolio Estime Vangu',
     images: [
       {
         url: '/images/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Estime Vangu - Développeur Web & Mobile Full Stack',
+        alt: 'Estime Vangu - Web & Mobile Developer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Estime Vangu | Développeur Web & Mobile Full Stack',
+    title: 'Estime Vangu | Web & Mobile Developer',
     description:
-      'Portfolio de Estime Vangu, développeur web et mobile full stack spécialisé en React, TypeScript et React Native.',
+      'Portfolio of Estime Vangu, web and mobile developer specialized in React, TypeScript and React Native.',
     images: ['/images/logo.png'],
     creator: '@estimevangu',
   },
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     google: 'votre-code-verification-google',
   },
   alternates: {
-    canonical: 'https://estimevangu.dev',
+    canonical: 'https://estimevanguportfolio.vercel.app/',
   },
   viewport: {
     width: 'device-width',

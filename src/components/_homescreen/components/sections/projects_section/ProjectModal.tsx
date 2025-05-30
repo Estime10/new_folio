@@ -70,7 +70,7 @@ const ProjectModal = ({ isOpen, onClose, project, accentColor }: ProjectModalPro
             {/* Content */}
             <motion.div className="p-4" {...projectModalVariants.body}>
               <motion.div className="relative" {...projectModalVariants.image}>
-                <div className="relative h-[650px] w-full rounded-xl overflow-hidden mb-4">
+                <div className="relative h-[400px] w-full rounded-xl overflow-hidden mb-4">
                   <Image
                     src={project.image}
                     alt={project.title}

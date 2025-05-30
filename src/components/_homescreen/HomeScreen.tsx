@@ -25,6 +25,23 @@ export const HomeScreen = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
+  // useEffect(() => {
+  //   // Forcer le retour à la page d'accueil lors du rafraîchissement
+  //   window.history.replaceState(null, '', window.location.pathname);
+  //   setAccentColor(menuItems[0].color);
+  //   setIsHome(true);
+  //   setActiveSection('home');
+  // }, []);
+
+  useEffect(() => {
+    // Mettre à jour l'URL lors des changements de section
+    if (activeSection !== 'home') {
+      window.history.replaceState(null, '', `#${activeSection}`);
+    } else {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+  }, [activeSection]);
+
   const handleMenuClick = (color: string, id: number) => {
     setAccentColor(color);
     setIsHome(id === 1);
@@ -68,7 +85,7 @@ export const HomeScreen = () => {
           isHome={isHome}
           activeSection={activeSection}
         />
-        {(isHome || activeSection === 'contact') && (
+        {isHome && (
           <>
             <Profession accentColor={accentColor} />
             <SocialIcons accentColor={accentColor} />

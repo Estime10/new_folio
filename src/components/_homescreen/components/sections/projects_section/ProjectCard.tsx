@@ -163,7 +163,7 @@ const ProjectCard = ({ accentColor }: ProjectCardProps) => {
 
       {/* Version Mobile */}
       <div className="lg:hidden w-full h-full pointer-events-auto">
-        <div className="px-4 pt-[300px] pb-8 h-full">
+        <div className="px-4 pt-[125px] pb-8 h-full">
           {/* Carte Projects */}
           <motion.div
             className="backdrop-blur-sm w-full rounded-2xl p-6 relative overflow-hidden h-full"
@@ -220,7 +220,7 @@ const ProjectCard = ({ accentColor }: ProjectCardProps) => {
                       {webProjects.map((project) => (
                         <motion.div
                           key={project.id}
-                          className="relative h-[300px] rounded-xl overflow-hidden cursor-pointer"
+                          className="relative h-[200px] rounded-xl overflow-hidden"
                           onClick={() => setSelectedProject({ project, type: 'web' })}
                           variants={projectItemVariants}
                           whileHover="hover"
@@ -233,11 +233,7 @@ const ProjectCard = ({ accentColor }: ProjectCardProps) => {
                             className="object-cover"
                             priority={project.id <= 2}
                           />
-                          <div className="absolute inset-0 bg-gradient from-black/80 to-transparent">
-                            <div className="absolute bottom-0 p-2 w-full">
-                              <h4 className="text-lg font-bold text-">{project.title}</h4>
-                            </div>
-                          </div>
+                          <h4 className="text-base font-bold text-center pb-10">{project.title}</h4>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -250,7 +246,7 @@ const ProjectCard = ({ accentColor }: ProjectCardProps) => {
                       {mobileProjects.map((project) => (
                         <motion.div
                           key={project.id}
-                          className="relative h-[350px] rounded-xl overflow-hidden cursor-pointer"
+                          className="relative h-[250px] rounded-xl overflow-hidden "
                           onClick={() => setSelectedProject({ project, type: 'mobile' })}
                           variants={projectItemVariants}
                           whileHover="hover"
@@ -265,7 +261,7 @@ const ProjectCard = ({ accentColor }: ProjectCardProps) => {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
                             <div className="absolute bottom-0 p-2 w-full">
-                              <h4 className="text-lg font-bold">{project.title}</h4>
+                              <h4 className="text-base font-bold">{project.title}</h4>
                             </div>
                           </div>
                         </motion.div>
