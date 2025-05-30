@@ -22,11 +22,11 @@ const SocialIcons = ({ accentColor }: SocialIconsProps) => {
             whileHover={{ scale: 1.2, y: -5 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.div animate={{ color: accentColor }} transition={{ duration: 0.5 }}>
-              <FaInstagram
-                className="text-6xl transition-colors cursor-pointer"
-                style={{ color: accentColor }}
-              />
+            <motion.div
+              className="text-white hover:text-[var(--accent-color)] transition-colors"
+              style={{ '--accent-color': accentColor } as React.CSSProperties}
+            >
+              <FaInstagram className="text-6xl cursor-pointer" />
             </motion.div>
           </motion.a>
           <motion.a
@@ -36,11 +36,11 @@ const SocialIcons = ({ accentColor }: SocialIconsProps) => {
             whileHover={{ scale: 1.2, y: -5 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.div animate={{ color: accentColor }} transition={{ duration: 0.5 }}>
-              <FaLinkedin
-                className="text-6xl transition-colors cursor-pointer"
-                style={{ color: accentColor }}
-              />
+            <motion.div
+              className="text-white hover:text-[var(--accent-color)] transition-colors"
+              style={{ '--accent-color': accentColor } as React.CSSProperties}
+            >
+              <FaLinkedin className="text-6xl cursor-pointer" />
             </motion.div>
           </motion.a>
           <motion.a
@@ -50,11 +50,11 @@ const SocialIcons = ({ accentColor }: SocialIconsProps) => {
             whileHover={{ scale: 1.2, y: -5 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.div animate={{ color: accentColor }} transition={{ duration: 0.5 }}>
-              <FaWhatsapp
-                className="text-6xl transition-colors cursor-pointer"
-                style={{ color: accentColor }}
-              />
+            <motion.div
+              className="text-white hover:text-[var(--accent-color)] transition-colors"
+              style={{ '--accent-color': accentColor } as React.CSSProperties}
+            >
+              <FaWhatsapp className="text-6xl cursor-pointer" />
             </motion.div>
           </motion.a>
           <motion.a
@@ -64,11 +64,11 @@ const SocialIcons = ({ accentColor }: SocialIconsProps) => {
             whileHover={{ scale: 1.2, y: -5 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.div animate={{ color: accentColor }} transition={{ duration: 0.5 }}>
-              <SiGmail
-                className="text-6xl transition-colors cursor-pointer"
-                style={{ color: accentColor }}
-              />
+            <motion.div
+              className="text-white hover:text-[var(--accent-color)] transition-colors"
+              style={{ '--accent-color': accentColor } as React.CSSProperties}
+            >
+              <SiGmail className="text-6xl cursor-pointer" />
             </motion.div>
           </motion.a>
         </div>
@@ -80,32 +80,20 @@ const SocialIcons = ({ accentColor }: SocialIconsProps) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaInstagram
-            className="text-6xl transition-colors cursor-pointer"
-            style={{ color: accentColor }}
-          />
+          <FaInstagram className="text-6xl text-white" />
         </a>
         <a
           href="https://www.linkedin.com/in/estime-vangu/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaLinkedin
-            className="text-6xl transition-colors cursor-pointer"
-            style={{ color: accentColor }}
-          />
+          <FaLinkedin className="text-6xl text-white" />
         </a>
         <a href="https://wa.me/32484030668" target="_blank" rel="noopener noreferrer">
-          <FaWhatsapp
-            className="text-6xl transition-colors cursor-pointer"
-            style={{ color: accentColor }}
-          />
+          <FaWhatsapp className="text-6xl text-white" />
         </a>
         <a href="mailto:estimedev10@gmail.com" target="_blank" rel="noopener noreferrer">
-          <SiGmail
-            className="text-6xl transition-colors cursor-pointer"
-            style={{ color: accentColor }}
-          />
+          <SiGmail className="text-6xl text-white" />
         </a>
       </div>
     </>
