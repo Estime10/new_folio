@@ -15,8 +15,8 @@ import ProjectCard from './components/sections/projects_section/ProjectCard';
 
 const menuItems = [
   { id: 1, label: 'Home', href: '#home', color: '#E40037' },
-  { id: 2, label: 'About', href: '#about', color: '#6C00FF' },
-  { id: 3, label: 'Projects', href: '#projects', color: '#39FF14' },
+  { id: 2, label: 'My Stacks', href: '#stacks', color: '#6C00FF' },
+  { id: 3, label: 'My Projects', href: '#projects', color: '#39FF14' },
 ];
 
 export const HomeScreen = () => {
@@ -45,7 +45,7 @@ export const HomeScreen = () => {
   const handleMenuClick = (color: string, id: number) => {
     setAccentColor(color);
     setIsHome(id === 1);
-    setActiveSection(id === 1 ? 'home' : id === 2 ? 'about' : 'projects');
+    setActiveSection(id === 1 ? 'home' : id === 2 ? 'stacks' : 'projects');
     setIsMobileMenuOpen(false);
   };
 
@@ -101,7 +101,7 @@ export const HomeScreen = () => {
 
         {/* Sections */}
         <AnimatePresence>
-          {activeSection === 'about' && <AboutCard accentColor={accentColor} />}
+          {activeSection === 'stacks' && <AboutCard accentColor={accentColor} />}
           {activeSection === 'projects' && <ProjectCard accentColor={accentColor} />}
         </AnimatePresence>
       </motion.div>

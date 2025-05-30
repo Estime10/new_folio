@@ -64,7 +64,7 @@ const techStack = [
 const AboutCard = ({ accentColor }: AboutCardProps) => {
   return (
     <motion.div
-      className="absolute inset-0 flex items-start justify-center overflow-y-auto pointer-events-none"
+      className="absolute inset-0 flex items-start justify-center pointer-events-none"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -72,7 +72,7 @@ const AboutCard = ({ accentColor }: AboutCardProps) => {
     >
       {/* Version Desktop */}
       <motion.div
-        className="hidden lg:block backdrop-blur-sm w-[80%] max-w-6xl rounded-2xl p-6 relative overflow-hidden mr-0 md:mr-40 mt-0 md:mt-44 pointer-events-auto"
+        className="hidden lg:block backdrop-blur-sm w-[80%] max-w-6xl rounded-2xl p-6 relative mr-0 md:mr-40 mt-0 md:mt-44 pointer-events-auto"
         initial={{ scale: 0.8, y: 50 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.8, y: 50 }}
@@ -138,40 +138,10 @@ const AboutCard = ({ accentColor }: AboutCardProps) => {
       </motion.div>
 
       {/* Version Mobile - About Me Only */}
-      <div className="lg:hidden flex flex-col gap-4 w-full px-4 mt-[125px] pointer-events-auto">
-        {/* Carte About Me */}
-        <motion.div
-          className="backdrop-blur-sm w-full rounded-2xl p-6 relative overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.div
-            className="absolute top-0 left-0 right-0 h-1"
-            style={{ backgroundColor: accentColor }}
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          />
-          <div className="text-white pt-4">
-            <h2 className="text-2xl font-bold mb-6">About me</h2>
-            <p className="text-base mb-4">
-              I&apos;m a web & mobile developer based in Belgium, passionate about design, code, and
-              culture. Blending technical precision with a bold visual identity, I craft digital
-              experiences that resonate. Since 2022, I&apos;ve been turning ideas into real,
-              functional, and stylish products. My style? Street in energy, clean in execution.
-            </p>
-            <p className="text-base">
-              I combine intuitive design with solid code to deliver smooth, engaging user
-              experiences.
-            </p>
-          </div>
-        </motion.div>
-
+      <div className="lg:hidden flex flex-col gap-4 w-full px-4 mt-[155px] pointer-events-auto">
         {/* Carte Languages */}
         <motion.div
-          className="backdrop-blur-sm w-full rounded-2xl p-6 relative overflow-hidden h-[400px]"
+          className="backdrop-blur-sm w-full rounded-2xl p-6 relative"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -184,7 +154,7 @@ const AboutCard = ({ accentColor }: AboutCardProps) => {
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           />
-          <div className="text-white space-y-6 pt-4 h-full overflow-y-auto">
+          <div className="text-white space-y-6 pt-4">
             {techStack.map((section, index) => (
               <motion.div
                 key={section.category}

@@ -92,14 +92,14 @@ const SocialIcons = ({ accentColor }: SocialIconsProps) => {
       </motion.div>
 
       {/* Mobile Version */}
-      <div className="lg:hidden flex justify-center gap-10 mt-4">
+      <div className="lg:hidden flex justify-center gap-10 mt-2">
         <a
           href="https://www.instagram.com/10davinchatcode?utm_source=qr&igsh=MThxYjNrdHpmZ3R6dw=="
           target="_blank"
           rel="noopener noreferrer"
           className="no-hover"
         >
-          <FaInstagram className="text-6xl text-white" />
+          <FaInstagram className="text-4xl text-white" />
         </a>
         <a
           href="https://www.linkedin.com/in/estime-vangu/"
@@ -107,7 +107,7 @@ const SocialIcons = ({ accentColor }: SocialIconsProps) => {
           rel="noopener noreferrer"
           className="no-hover"
         >
-          <FaLinkedin className="text-6xl text-white" />
+          <FaLinkedin className="text-4xl text-white" />
         </a>
         <a
           href="https://wa.me/32484030668"
@@ -115,7 +115,7 @@ const SocialIcons = ({ accentColor }: SocialIconsProps) => {
           rel="noopener noreferrer"
           className="no-hover"
         >
-          <FaWhatsapp className="text-6xl text-white" />
+          <FaWhatsapp className="text-4xl text-white" />
         </a>
         <a
           href="mailto:estimedev10@gmail.com"
@@ -123,7 +123,7 @@ const SocialIcons = ({ accentColor }: SocialIconsProps) => {
           rel="noopener noreferrer"
           className="no-hover"
         >
-          <SiGmail className="text-6xl text-white" />
+          <SiGmail className="text-4xl text-white" />
         </a>
       </div>
     </>

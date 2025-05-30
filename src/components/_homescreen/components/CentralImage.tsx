@@ -57,7 +57,8 @@ const CentralImage = ({ accentColor, showImage, isHome }: CentralImageProps) => 
       <AnimatePresence>
         {showImage && (
           <motion.div
-            className="relative
+            key="main-image"
+            className="relative hidden lg:block
             w-[400px] h-[400px]
             md:w-[500px] md:h-[500px]
             lg:w-[800px] lg:h-[800px]
@@ -85,6 +86,74 @@ const CentralImage = ({ accentColor, showImage, isHome }: CentralImageProps) => 
               className="object-cover rounded-lg shadow-xl"
               priority
             />
+          </motion.div>
+        )}
+
+        {isHome && (
+          <motion.div
+            key="about-me"
+            className="lg:hidden flex flex-col gap-4 w-full px-4 mt-[125px] pointer-events-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* Carte About Me */}
+            <motion.div
+              className="backdrop-blur-sm w-full rounded-2xl p-6 relative overflow-hidden mt-44"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.div
+                className="absolute top-0 left-0 right-0 h-1"
+                style={{ backgroundColor: accentColor }}
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              />
+              <div className="text-white pt-0">
+                <p className="text-sm mb-6 text-justify leading-relaxed">
+                  Hey, I'm a{' '}
+                  <motion.span className="font-bold uppercase" style={{ color: accentColor }}>
+                    web & mobile developer
+                  </motion.span>{' '}
+                  based in Belgium, with a passion for{' '}
+                  <motion.span className="font-bold uppercase" style={{ color: accentColor }}>
+                    design, code, and culture
+                  </motion.span>
+                  . My work sits at the intersection of{' '}
+                  <motion.span className="font-bold uppercase" style={{ color: accentColor }}>
+                    creativity and precision
+                  </motion.span>
+                  , where every pixel matters and every line of code has a purpose.
+                </p>
+                <p className="text-sm mb-6 text-justify leading-relaxed">
+                  Since 2022, I've been building{' '}
+                  <motion.span className="font-bold uppercase" style={{ color: accentColor }}>
+                    digital products
+                  </motion.span>{' '}
+                  that are not only aesthetic and responsive, but also{' '}
+                  <motion.span className="font-bold uppercase" style={{ color: accentColor }}>
+                    SEO-friendly and client-focused
+                  </motion.span>
+                  . I believe in crafting{' '}
+                  <motion.span className="font-bold uppercase" style={{ color: accentColor }}>
+                    user-first experiences
+                  </motion.span>{' '}
+                  — fast, smooth, and intuitive — that speak to people and perform in the real
+                  world.
+                </p>
+                <p className="text-sm text-justify leading-relaxed">
+                  My vibe?{' '}
+                  <motion.span className="font-bold uppercase" style={{ color: accentColor }}>
+                    Street energy, clean execution
+                  </motion.span>
+                  . I code like I design — with intention, with flow, and with the user in mind.
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
