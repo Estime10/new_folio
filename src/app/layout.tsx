@@ -5,17 +5,19 @@ import './globals.css';
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
+  display: 'swap',
 });
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Estime Vangu | Web & App Developer',
+  title: 'Estime Vangu | Développeur Web & Mobile Full Stack',
   description:
-    'Portfolio de Estime Vangu, développeur web et mobile spécialisé en React, TypeScript et React Native. Découvrez mes projets et compétences en développement web et mobile.',
+    'Portfolio de Estime Vangu, développeur web et mobile full stack spécialisé en React, TypeScript et React Native. Découvrez mes projets innovants et mes compétences en développement web et mobile.',
   keywords: [
     'développeur web',
     'développeur mobile',
@@ -25,8 +27,10 @@ export const metadata: Metadata = {
     'Next.js',
     'portfolio',
     'Estime Vangu',
+    'full stack',
+    'développeur belge',
   ],
-  authors: [{ name: 'Estime Vangu' }],
+  authors: [{ name: 'Estime Vangu', url: 'https://estimevangu.dev' }],
   creator: 'Estime Vangu',
   publisher: 'Estime Vangu',
   formatDetection: {
@@ -38,24 +42,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     url: 'https://estimevangu.dev',
-    title: 'Estime Vangu | Web & App Developer',
+    title: 'Estime Vangu | Développeur Web & Mobile Full Stack',
     description:
-      'Portfolio de Estime Vangu, développeur web et mobile spécialisé en React, TypeScript et React Native.',
+      'Portfolio de Estime Vangu, développeur web et mobile full stack spécialisé en React, TypeScript et React Native.',
     siteName: 'Portfolio Estime Vangu',
     images: [
       {
         url: '/images/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Estime Vangu - Web & App Developer',
+        alt: 'Estime Vangu - Développeur Web & Mobile Full Stack',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Estime Vangu | Web & App Developer',
+    title: 'Estime Vangu | Développeur Web & Mobile Full Stack',
     description:
-      'Portfolio de Estime Vangu, développeur web et mobile spécialisé en React, TypeScript et React Native.',
+      'Portfolio de Estime Vangu, développeur web et mobile full stack spécialisé en React, TypeScript et React Native.',
     images: ['/images/logo.png'],
     creator: '@estimevangu',
   },
@@ -76,6 +80,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://estimevangu.dev',
   },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  themeColor: '#121212',
 };
 
 export default function RootLayout({
@@ -88,6 +98,8 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/images/logo_2.png" />
         <meta name="theme-color" content="#121212" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${playfair.variable} ${inter.variable} antialiased`}>{children}</body>
     </html>
