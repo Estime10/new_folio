@@ -33,7 +33,7 @@ const ProjectGrid = ({ projects, accentColor, isMobile = false }: ProjectGridPro
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-          whileHover={{ scale: 1.01 }}
+          whileHover={{ scale: 1, transition: { duration: 0.3 } }}
         >
           {/* Image Container */}
           <div
@@ -59,15 +59,15 @@ const ProjectGrid = ({ projects, accentColor, isMobile = false }: ProjectGridPro
                 <h3 className="text-2xl font-bold mb-3" style={{ color: accentColor }}>
                   {project.title}
                 </h3>
-                <p className="text-white/90 text-base max-w-2xl">{project.description}</p>
+                <p className="text-white/90 text-lg max-w-2xl">{project.description}</p>
                 {project.link && (
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-3 text-white/90 hover:text-white transition-colors"
+                    className="inline-block mt-3 text-white/90 hover:text-white transition-colors text-lg font-bold border border-white/10 rounded-lg px-4 py-2"
                   >
-                    View Project →
+                    View Project
                   </a>
                 )}
               </div>

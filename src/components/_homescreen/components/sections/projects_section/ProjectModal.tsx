@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { IoIosCloseCircle } from 'react-icons/io';
+import { projectModalVariants } from '../../../../../lib/animations';
 
 interface Project {
   id: number;
@@ -28,10 +29,7 @@ const ProjectModal = ({ isOpen, onClose, project, accentColor, title }: ProjectM
       {isOpen && (
         <motion.div
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-md"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          {...projectModalVariants.overlay}
           style={{ pointerEvents: 'auto' }}
           onClick={(e) => {
             e.preventDefault();
@@ -47,22 +45,13 @@ const ProjectModal = ({ isOpen, onClose, project, accentColor, title }: ProjectM
               backgroundColor: `${accentColor}20`,
               pointerEvents: 'auto',
             }}
-            initial={{ scale: 0.95, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.95, opacity: 0, y: 20 }}
-            transition={{
-              duration: 0.4,
-              ease: [0.16, 1, 0.3, 1], // Custom easing curve for smooth animation
-              opacity: { duration: 0.3 },
-            }}
+            {...projectModalVariants.content}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
             <motion.div
               className="p-4 border-b border-white/10 relative z-[101]"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.3 }}
+              {...projectModalVariants.header}
             >
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-bold text-white uppercase">{project.title}</h2>
@@ -72,13 +61,7 @@ const ProjectModal = ({ isOpen, onClose, project, accentColor, title }: ProjectM
                     onClose();
                   }}
                   className="text-white p-2"
-                  initial={{ opacity: 0, rotate: 0 }}
-                  animate={{ opacity: 1, rotate: 180 }}
-                  exit={{ opacity: 0, rotate: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    ease: 'easeInOut',
-                  }}
+                  {...projectModalVariants.closeButton}
                 >
                   <IoIosCloseCircle className="text-4xl" />
                 </motion.button>
@@ -86,18 +69,8 @@ const ProjectModal = ({ isOpen, onClose, project, accentColor, title }: ProjectM
             </motion.div>
 
             {/* Content */}
-            <motion.div
-              className="p-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.3 }}
-            >
-              <motion.div
-                className="relative"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.4 }}
-              >
+            <motion.div className="p-4" {...projectModalVariants.body}>
+              <motion.div className="relative" {...projectModalVariants.image}>
                 <div className="relative h-[650px] w-full rounded-xl overflow-hidden mb-4">
                   <Image
                     src={project.image}

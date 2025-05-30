@@ -1,8 +1,14 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
+import {
+  projectCardVariants,
+  projectGridVariants,
+  projectItemVariants,
+  projectTabVariants,
+} from '../../../../../lib/animations';
 import ProjectGrid from './ProjectGrid';
 import ProjectModal from './ProjectModal';
 
@@ -37,8 +43,8 @@ const webProjects = [
     id: 4,
     title: 'Smoked Parfum',
     image: '/images/projects/smoked.png',
-    description: 'A website for a smoked parfum shop called "Smoked Parfume"',
-    link: 'https://smokedparfum.fr',
+    description:
+      'A website for a smoked parfum shop called "Smoked Parfume" this website is still in development and will be launched soon',
   },
 ];
 
@@ -47,13 +53,15 @@ const mobileProjects = [
     id: 1,
     title: 'Sneak In Eazey',
     image: '/images/projects/sneaks.png',
-    description: 'A Mobile App social network for a sneakerhead called "Sneake In Eazey"',
+    description:
+      'A Mobile App social network for a sneakerhead called "Sneake In Eazey" this app is still in development',
   },
   {
     id: 2,
     title: 'HEY, i COOK',
     image: '/images/projects/cook.png',
-    description: 'A Mobile App for a cooking recipes to make at home called "Hey, I COOK"',
+    description:
+      'A Mobile App for a cooking recipes to make at home called "Hey, I COOK" this app is still in development',
   },
 ];
 
@@ -68,10 +76,10 @@ const ProjectCard = ({ accentColor }: ProjectCardProps) => {
   return (
     <motion.div
       className="absolute inset-0 flex items-start justify-center overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
+      variants={projectCardVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       style={{
         pointerEvents: selectedProject ? 'auto' : 'none',
         zIndex: selectedProject ? 100 : 1,
@@ -80,10 +88,10 @@ const ProjectCard = ({ accentColor }: ProjectCardProps) => {
       {/* Version Desktop */}
       <motion.div
         className="hidden lg:block backdrop-blur-sm w-[80%] max-w-6xl rounded-2xl p-6 relative overflow-hidden mr-0 md:mr-40 mt-0 md:mt-44"
-        initial={{ scale: 0.8, y: 50 }}
-        animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0.8, y: 50 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        variants={projectGridVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
         style={{ pointerEvents: 'auto' }}
       >
         {/* Barre de couleur en haut */}
@@ -202,55 +210,69 @@ const ProjectCard = ({ accentColor }: ProjectCardProps) => {
 
               {/* Content */}
               <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                {activeTab === 'web' ? (
-                  <div className="grid grid-cols-2 gap-4">
-                    {webProjects.map((project) => (
-                      <motion.div
-                        key={project.id}
-                        className="relative h-[300px] rounded-xl overflow-hidden"
-                        onClick={() => setSelectedProject({ project, type: 'web' })}
-                      >
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          sizes="(max-width: 768px) 50vw"
-                          className="object-cover"
-                          priority={project.id <= 2}
-                        />
-                        <div className="absolute inset-0 bg-gradient from-black/80 to-transparent">
-                          <div className="absolute bottom-0 p-2 w-full">
-                            <h4 className="text-lg font-bold text-">{project.title}</h4>
+                <AnimatePresence mode="wait">
+                  {activeTab === 'web' ? (
+                    <motion.div
+                      key="web"
+                      className="grid grid-cols-2 gap-4"
+                      {...projectTabVariants.web}
+                    >
+                      {webProjects.map((project) => (
+                        <motion.div
+                          key={project.id}
+                          className="relative h-[300px] rounded-xl overflow-hidden cursor-pointer"
+                          onClick={() => setSelectedProject({ project, type: 'web' })}
+                          variants={projectItemVariants}
+                          whileHover="hover"
+                        >
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            sizes="(max-width: 768px) 50vw"
+                            className="object-cover"
+                            priority={project.id <= 2}
+                          />
+                          <div className="absolute inset-0 bg-gradient from-black/80 to-transparent">
+                            <div className="absolute bottom-0 p-2 w-full">
+                              <h4 className="text-lg font-bold text-">{project.title}</h4>
+                            </div>
                           </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-2 gap-4">
-                    {mobileProjects.map((project) => (
-                      <motion.div
-                        key={project.id}
-                        className="relative h-[350px] rounded-xl overflow-hidden"
-                        onClick={() => setSelectedProject({ project, type: 'mobile' })}
-                      >
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          sizes="(max-width: 768px) 50vw"
-                          className="object-cover"
-                          priority={true}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
-                          <div className="absolute bottom-0 p-2 w-full">
-                            <h4 className="text-lg font-bold">{project.title}</h4>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="mobile"
+                      className="grid grid-cols-2 gap-4"
+                      {...projectTabVariants.mobile}
+                    >
+                      {mobileProjects.map((project) => (
+                        <motion.div
+                          key={project.id}
+                          className="relative h-[350px] rounded-xl overflow-hidden cursor-pointer"
+                          onClick={() => setSelectedProject({ project, type: 'mobile' })}
+                          variants={projectItemVariants}
+                          whileHover="hover"
+                        >
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            sizes="(max-width: 768px) 50vw"
+                            className="object-cover"
+                            priority={true}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                            <div className="absolute bottom-0 p-2 w-full">
+                              <h4 className="text-lg font-bold">{project.title}</h4>
+                            </div>
                           </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                )}
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
           </motion.div>
