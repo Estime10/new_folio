@@ -285,7 +285,6 @@ const ProjectCard = ({ accentColor }: ProjectCardProps) => {
         onClose={() => setSelectedProject(null)}
         project={selectedProject?.project}
         accentColor={accentColor}
-        title={selectedProject?.type === 'web' ? 'Web Project' : 'Mobile Project'}
       />
     </motion.div>
   );

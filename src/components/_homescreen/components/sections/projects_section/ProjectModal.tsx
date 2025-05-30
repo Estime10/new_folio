@@ -18,10 +18,9 @@ interface ProjectModalProps {
   onClose: () => void;
   project: Project | undefined;
   accentColor: string;
-  title: string;
 }
 
-const ProjectModal = ({ isOpen, onClose, project, accentColor, title }: ProjectModalProps) => {
+const ProjectModal = ({ isOpen, onClose, project, accentColor }: ProjectModalProps) => {
   if (!project) return null;
 
   return (

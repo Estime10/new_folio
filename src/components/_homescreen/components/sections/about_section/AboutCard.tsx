@@ -97,10 +97,10 @@ const AboutCard = ({ accentColor }: AboutCardProps) => {
           >
             <h2 className="text-3xl font-bold mb-4">About me</h2>
             <p className="text-lg mb-3">
-              I'm a web & mobile developer based in Belgium, passionate about design, code, and
+              I&apos;m a web & mobile developer based in Belgium, passionate about design, code, and
               culture. Blending technical precision with a bold visual identity, I craft digital
-              experiences that resonate. Since 2022, I've been turning ideas into real, functional,
-              and stylish products. My style? Street in energy, clean in execution.
+              experiences that resonate. Since 2022, I&apos;ve been turning ideas into real,
+              functional, and stylish products. My style? Street in energy, clean in execution.
             </p>
             <p className="text-lg mb-4">
               I combine intuitive design with solid code to deliver smooth, engaging user
@@ -157,10 +157,10 @@ const AboutCard = ({ accentColor }: AboutCardProps) => {
           <div className="text-white pt-4">
             <h2 className="text-2xl font-bold mb-6">About me</h2>
             <p className="text-base mb-4">
-              I'm a web & mobile developer based in Belgium, passionate about design, code, and
+              I&apos;m a web & mobile developer based in Belgium, passionate about design, code, and
               culture. Blending technical precision with a bold visual identity, I craft digital
-              experiences that resonate. Since 2022, I've been turning ideas into real, functional,
-              and stylish products. My style? Street in energy, clean in execution.
+              experiences that resonate. Since 2022, I&apos;ve been turning ideas into real,
+              functional, and stylish products. My style? Street in energy, clean in execution.
             </p>
             <p className="text-base">
               I combine intuitive design with solid code to deliver smooth, engaging user
