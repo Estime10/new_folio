@@ -20,7 +20,7 @@ const Header = ({ accentColor, onToggleMobileMenu }: HeaderProps) => {
 
       {/* Nom et Prénom (visible uniquement sur desktop) */}
       <motion.div
-        className="hidden lg:flex flex-col items-center mt-3"
+        className="hidden lg:flex flex-col items-center mt-2"
         variants={headerGroupVariants}
       >
         <h1 className="font-playfair text-5xl font-bold text-center uppercase">
@@ -37,7 +37,7 @@ const Header = ({ accentColor, onToggleMobileMenu }: HeaderProps) => {
       </motion.div>
 
       {/* Menu Icon (visible uniquement sur mobile) */}
-      <div className="lg:hidden -mt-8" onClick={onToggleMobileMenu}>
+      <div className="lg:hidden -mt-4" onClick={onToggleMobileMenu}>
         <TiThMenu className="text-white text-4xl" />
       </div>
     </motion.header>
