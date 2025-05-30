@@ -63,8 +63,13 @@ export const HomeScreen = () => {
         className="h-full w-full"
       >
         <Header accentColor={accentColor} onToggleMobileMenu={toggleMobileMenu} />
-        <CentralImage accentColor={accentColor} showImage={isHome} isHome={isHome} />
-        {isHome && (
+        <CentralImage
+          accentColor={accentColor}
+          showImage={isHome}
+          isHome={isHome}
+          activeSection={activeSection}
+        />
+        {(isHome || activeSection === 'contact') && (
           <>
             <Profession accentColor={accentColor} />
             <SocialIcons accentColor={accentColor} />

@@ -7,7 +7,7 @@ import { bottomGroupVariants, imagePresenceVariants, imageVariants } from '../..
 import type { CentralImageProps } from '../../../lib/types';
 import SocialIcons from './SocialIcons';
 
-const CentralImage = ({ accentColor, showImage, isHome }: CentralImageProps) => {
+const CentralImage = ({ accentColor, showImage, isHome, activeSection }: CentralImageProps) => {
   return (
     <motion.div className="h-screen flex items-center justify-center" variants={imageVariants}>
       {/* Contenu Mobile (visible uniquement sur mobile) */}
@@ -46,7 +46,7 @@ const CentralImage = ({ accentColor, showImage, isHome }: CentralImageProps) => 
               Developer
             </motion.span>
           </p>
-          {isHome && (
+          {(isHome || activeSection === 'contact') && (
             <div className="mt-4">
               <SocialIcons accentColor={accentColor} />
             </div>

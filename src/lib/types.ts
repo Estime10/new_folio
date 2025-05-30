@@ -14,6 +14,7 @@ export interface CentralImageProps {
   accentColor: string;
   showImage: boolean;
   isHome: boolean;
+  activeSection: string;
 }
 
 export interface NavigationProps {
