@@ -115,7 +115,7 @@ const CentralImage = ({ accentColor, showImage, isHome }: CentralImageProps) => 
               />
               <div className="text-white pt-0">
                 <p className="text-sm mb-6 text-justify leading-relaxed">
-                  Hey, I'm a{' '}
+                  Hey, I&apos;m a{' '}
                   <motion.span className="font-bold uppercase" style={{ color: accentColor }}>
                     web & mobile developer
                   </motion.span>{' '}
@@ -130,7 +130,7 @@ const CentralImage = ({ accentColor, showImage, isHome }: CentralImageProps) => 
                   , where every pixel matters and every line of code has a purpose.
                 </p>
                 <p className="text-sm mb-6 text-justify leading-relaxed">
-                  Since 2022, I've been building{' '}
+                  Since 2022, I&apos;ve been building{' '}
                   <motion.span className="font-bold uppercase" style={{ color: accentColor }}>
                     digital products
                   </motion.span>{' '}

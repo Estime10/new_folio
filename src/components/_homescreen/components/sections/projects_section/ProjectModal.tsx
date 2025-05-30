@@ -27,7 +27,7 @@ const ProjectModal = ({ isOpen, onClose, project, accentColor }: ProjectModalPro
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-md"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
           {...projectModalVariants.overlay}
           style={{ pointerEvents: 'auto' }}
           onClick={(e) => {

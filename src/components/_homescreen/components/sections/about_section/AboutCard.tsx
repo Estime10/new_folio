@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaCode, FaFigma, FaGitAlt, FaNodeJs, FaReact } from 'react-icons/fa';
+import { FaNodeJs, FaReact } from 'react-icons/fa';
 import {
   SiExpo,
   SiNextdotjs,
@@ -9,7 +9,6 @@ import {
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
-  SiVercel,
 } from 'react-icons/si';
 import { TbBrandReactNative } from 'react-icons/tb';
 
@@ -50,15 +49,15 @@ const techStack = [
       { name: 'Expo', icon: <SiExpo className="w-6 h-6" /> },
     ],
   },
-  {
-    category: 'Tools & Others',
-    items: [
-      { name: 'Git', icon: <FaGitAlt className="w-6 h-6" /> },
-      { name: 'Figma', icon: <FaFigma className="w-6 h-6" /> },
-      { name: 'Vercel', icon: <SiVercel className="w-6 h-6" /> },
-      { name: 'VS Code', icon: <FaCode className="w-6 h-6" /> },
-    ],
-  },
+  // {
+  //   category: 'Tools & Others',
+  //   items: [
+  //     { name: 'Git', icon: <FaGitAlt className="w-6 h-6" /> },
+  //     { name: 'Figma', icon: <FaFigma className="w-6 h-6" /> },
+  //     { name: 'Vercel', icon: <SiVercel className="w-6 h-6" /> },
+  //     { name: 'VS Code', icon: <FaCode className="w-6 h-6" /> },
+  //   ],
+  // },
 ];
 
 const AboutCard = ({ accentColor }: AboutCardProps) => {
@@ -95,43 +94,75 @@ const AboutCard = ({ accentColor }: AboutCardProps) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h2 className="text-3xl font-bold mb-4">About me</h2>
-            <p className="text-lg mb-3">
-              I&apos;m a web & mobile developer based in Belgium, passionate about design, code, and
-              culture. Blending technical precision with a bold visual identity, I craft digital
-              experiences that resonate. Since 2022, I&apos;ve been turning ideas into real,
-              functional, and stylish products. My style? Street in energy, clean in execution.
+            <p className="text-lg mb-2">
+              Hey! I&apos;m a{' '}
+              <motion.span className="font-bold" style={{ color: accentColor }}>
+                web & mobile developer
+              </motion.span>{' '}
+              based in Belgium, turning caffeine into code since 2022. I&apos;m passionate about{' '}
+              <motion.span className="font-bold" style={{ color: accentColor }}>
+                design, code, and culture
+              </motion.span>{' '}
+              - the perfect blend for creating digital experiences that don&apos;t just look good,
+              but feel right.
             </p>
-            <p className="text-lg mb-4">
-              I combine intuitive design with solid code to deliver smooth, engaging user
-              experiences.
+            <p className="text-lg mb-2">
+              My work sits at the intersection of{' '}
+              <motion.span className="font-bold" style={{ color: accentColor }}>
+                creativity and precision
+              </motion.span>
+              . Think of me as a digital craftsman - where every pixel matters and every line of
+              code has a purpose. I&apos;m not just building websites and apps; I&apos;m crafting
+              experiences that resonate with users and make them go &quot;Wow!&quot;
+            </p>
+            <p className="text-lg mb-2">
+              I combine{' '}
+              <motion.span className="font-bold" style={{ color: accentColor }}>
+                intuitive design with solid code
+              </motion.span>{' '}
+              to deliver smooth, engaging user experiences. My style?{' '}
+              <motion.span className="font-bold" style={{ color: accentColor }}>
+                Street energy, clean execution
+              </motion.span>
+              . I code like I design — with intention, with flow, and with the user in mind.
             </p>
 
             {/* Tech Stack */}
-            <div className="space-y-4">
-              {techStack.map((section, index) => (
-                <motion.div
-                  key={section.category}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                >
-                  <h3 className="text-lg font-semibold mb-2">{section.category}</h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                    {section.items.map((item) => (
+            <div className="mt-4">
+              <div className="backdrop-blur-sm rounded-lg p-4 relative">
+                <div className="max-h-[500px] overflow-y-auto">
+                  <div
+                    className="absolute inset-0 rounded-lg"
+                    style={{ backgroundColor: accentColor, opacity: 0.1 }}
+                  />
+                  <div className="relative z-10">
+                    {techStack.map((section, index) => (
                       <motion.div
-                        key={item.name}
-                        className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg p-1.5"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        key={section.category}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                        className="mb-4 last:mb-0"
                       >
-                        <div className="text-white/80">{item.icon}</div>
-                        <span className="text-base">{item.name}</span>
+                        <h3 className="text-lg font-semibold mb-2">{section.category}</h3>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                          {section.items.map((item) => (
+                            <motion.div
+                              key={item.name}
+                              className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg p-1.5"
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              <div className="text-white/80">{item.icon}</div>
+                              <span className="text-base">{item.name}</span>
+                            </motion.div>
+                          ))}
+                        </div>
                       </motion.div>
                     ))}
                   </div>
-                </motion.div>
-              ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
