@@ -13,7 +13,7 @@ const CentralImage = ({ accentColor, showImage, isHome }: CentralImageProps) => 
       {/* Contenu Mobile (visible uniquement sur mobile) */}
       {isHome && (
         <motion.div
-          className="lg:hidden absolute top-44 left-0 right-0 flex flex-col items-center z-10"
+          className="lg:hidden absolute top-30 left-0 right-0 flex flex-col items-center z-10"
           variants={bottomGroupVariants}
         >
           <h1 className="font-playfair text-3xl font-bold text-center uppercase">
@@ -92,7 +92,7 @@ const CentralImage = ({ accentColor, showImage, isHome }: CentralImageProps) => 
         {isHome && (
           <motion.div
             key="about-me"
-            className="lg:hidden flex flex-col gap-4 w-full px-4 mt-[125px] pointer-events-auto"
+            className="lg:hidden flex flex-col gap-4 w-full px-4 mt-[16px] pointer-events-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

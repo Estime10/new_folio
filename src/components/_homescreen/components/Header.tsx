@@ -9,7 +9,7 @@ import type { HeaderProps } from '../../../lib/types';
 const Header = ({ accentColor, onToggleMobileMenu }: HeaderProps) => {
   return (
     <motion.header
-      className="fixed -top-10 lg:-top-24 left-0 right-0 px-4 flex justify-between items-center lg:px-10 lg:py-10"
+      className="fixed -top-20 left-0 right-0 px-4 flex justify-between items-center"
       variants={headerGroupVariants}
       style={{ zIndex: 50 }}
     >
